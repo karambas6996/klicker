@@ -20,11 +20,11 @@
             <div class="balance">
                 <div class="balance-main">
                     <span id="score">
-                        0
+                        
                     </span>
                 </div>
                 <div class="income">
-                    +<span>24</span> / sec
+                    +<span id="incomePerSecondElement"></span> / sec
                 </div>
             </div>
             <button class="icon-button settings-button">
@@ -47,13 +47,13 @@
         <footer class="stats">
             <div class="stats-card">
                 <i class="stats-icon fa-solid fa-play"></i>
-                <strong class="stats-value" id="totalClicks">0</strong>
+                <strong class="stats-value" id="totalClicks"></strong>
                 <small class="stats-text">total clicks</small>
             </div>
             <div class="stats-card">
                 <i class="stats-icon fa-solid fa-bolt-lightning"></i>
-                <strong class="stats-value">24 / sec</strong>
-                <small class="stats-text">auto click</small>
+                <strong class="stats-value"><span id="clickPowerElement"></span> / click</strong>
+                <small class="stats-text">click power</small>
             </div>
             <div class="stats-card">
                 <i class="stats-icon fa-solid fa-trophy"></i>

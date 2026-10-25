@@ -2,6 +2,8 @@
 const scoreElement = document.getElementById("score")
 const clickButton = document.getElementById("clickButton")
 const totalClicksElement = document.getElementById("totalClicks")
+const incomePerSecondElement = document.getElementById("incomePerSecondElement")
+const clickPowerElement = document.getElementById("clickPowerElement")
 
 // общие переменые
 let score = 0;
@@ -19,28 +21,35 @@ async function loadGame(){
     incomePerSecond = response.incomePerSecond
     clickPower = response.clickPower
     totalClicks = response.totalClicks
+    render()
 }
 loadGame()
 
 // постояное увелечение счета
 setInterval(function(){
     score = score + incomePerSecond
-    scoreElement.textContent = score 
+    render()
 },1000)
 
 // увелечение счета при клике
-clickButton.addEventListener("click",function(){
-    score = score + clickPower
-    totalClicks = totalClicks + 1
-
-    syncGame()
-    scoreElement.textContent = score
-    totalClicksElement.textContent = totalClicks 
+clickButton.addEventListener("click", async function(){
+   await sendClick()
 })
 
-async function syncGame() { 
-    await fetch("http://localhost:8000/api/click.php", {
+async function sendClick() { 
+    const response = await fetch("http://localhost:8000/api/click.php", {
         method: "PUT"
     })
-    .then(response => response.ok)
+    .then(response => response.json())
+    score = response.score
+    totalClicks = response.totalClicks
+    render()
+}
+
+
+function render() {
+    scoreElement.textContent = score 
+    incomePerSecondElement.textContent = incomePerSecond
+    clickPowerElement.textContent = clickPower
+    totalClicksElement.textContent = totalClicks
 }
