@@ -1,4 +1,4 @@
-// элементы интерфейса 
+// элементы интерфейса
 const scoreElement = document.getElementById("score")
 const clickButton = document.getElementById("clickButton")
 const totalClicksElement = document.getElementById("totalClicks")
@@ -26,10 +26,17 @@ async function loadGame(){
 loadGame()
 
 // постояное увелечение счета
-setInterval(function(){
-    score = score + incomePerSecond
+setInterval(async function(){
+    // отправляем запрос на растчет текущего состояния состояние счета 
+    const response = await fetch("http://localhost:8000/api/income.php" , {
+        method: "PUT"
+    })
+    .then(response => response.json())
+    // читаем ответ сервера
+    // исрользуем данные из ответа для отоброжения нашего клиента
+    score = response.score
     render()
-},1000)
+},500)
 
 // увелечение счета при клике
 clickButton.addEventListener("click", async function(){
