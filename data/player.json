@@ -1,7 +1,17 @@
 {
-    "timestamp": 1793439607,
-    "score": 135755,
+    "timestamp": 1794734355,
+    "score": 6633855,
     "incomePerSecond": 5,
     "clickPower": 120,
-    "totalClicks": 6000
+    "totalClicks": 6203,
+    "upgrades": [
+        {
+            "name": "strongClick",
+            "currentLevel": 0
+        },
+        {
+            "name": "scoreIncome",
+            "currentLevel": 0
+        }
+    ]
 }

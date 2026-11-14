@@ -1,0 +1,16 @@
+[
+  {
+    "displayName": "Сильный клик",
+    "name": "strongClick",
+    "description": "за каждый клик",
+    "icon": "fa-bolt-lightning",
+    "price": 500
+  },
+  {
+    "displayName": "Прирост очков",
+    "name": "scoreIncome",
+    "description": "в секунду",
+    "icon": "fa-angles-up",
+    "price": 2000
+  }
+]
